@@ -3,15 +3,17 @@ import Post from './Post/Post';
 import classes from './Posts.module.css';
 
 const Posts = (props) => {
-    
     let posts = props.posts.map(p => <Post text={p.text} likes={p.likes} />);
 
     let textPostRef = React.createRef();
 
     const addNewPost = () => {
+        props.addPost();
+    }
+
+    const updateTextArea = () => {
         let text = textPostRef.current.value;
-        props.addPost(text);
-        textPostRef.current.value = '';
+        props.updateNewPostTextArea(text);
     }
 
     return (
@@ -21,7 +23,7 @@ const Posts = (props) => {
 
             <div>
                 <div>
-                    <textarea ref={textPostRef}></textarea>
+                    <textarea onChange={updateTextArea} ref={textPostRef} value={props.newPostText}/>
                 </div>
 
                 <div>
