@@ -1,3 +1,5 @@
+import { rerenderTree } from "../render";
+
 let state = {
     dialogsPage: {
         dialogs: [
@@ -22,7 +24,7 @@ let state = {
 export let addPost = (text) => {
     let newPost = { likes: 13, text: text};
     state.profilePage.posts.push(newPost);
-    console.log(newPost)
+    rerenderTree(state);
 };
 
 export default state;
