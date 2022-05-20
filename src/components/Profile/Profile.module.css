@@ -1,0 +1,11 @@
+#gachi {
+    display: block;
+    width: 95%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    opacity: 0.3;
+    border-radius: 3%;
+    border: 5px solid black;
+}

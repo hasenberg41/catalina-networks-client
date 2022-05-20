@@ -1,0 +1,13 @@
+.header {
+    grid-area: header;
+    background-color: #81847B;
+}
+
+.header img {
+    display: flex;
+    padding: auto;
+    margin: 5px auto;
+    width: 50px;
+    border-radius: 50%;
+    opacity: 0.7;
+}
