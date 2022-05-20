@@ -17,6 +17,12 @@ let state = {
             { likes: 32, text: "oaoa" }
         ]
     }
-}
+};
+
+export let addPost = (text) => {
+    let newPost = { likes: 13, text: text};
+    state.profilePage.posts.push(newPost);
+    console.log(newPost)
+};
 
 export default state;
