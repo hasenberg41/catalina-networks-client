@@ -1,4 +1,6 @@
-import { rerenderTree } from "../render";
+let rerenderTree = () => {
+    console.log('state was changed')
+}
 
 let state = {
     dialogsPage: {
@@ -39,7 +41,11 @@ export const sendMessage = () => {
     let message = state.dialogsPage.newMessageText;
     state.dialogsPage.messages.push(message);
     state.dialogsPage.newMessageText = '';
-    rerenderTree();
+    rerenderTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderTree = observer;
 }
 
 export const updateNewMessageTextArea = (text) => {

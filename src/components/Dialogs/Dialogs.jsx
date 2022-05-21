@@ -5,9 +5,9 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
     let dialogs = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
-    
+
     let messages = props.state.messages.map(m => <Message text={m} />);
-    
+
     let messageTextRef = React.createRef();
     debugger;
 
@@ -31,9 +31,9 @@ const Dialogs = (props) => {
                 {messages}
                 <div>
                     <div>
-                        <textarea 
-                            onChange={updateTextArea} 
-                            ref={messageTextRef} 
+                        <textarea
+                            onChange={updateTextArea}
+                            ref={messageTextRef}
                             value={props.state.newMessageText}
                         />
                     </div>
