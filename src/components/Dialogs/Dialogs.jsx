@@ -9,7 +9,6 @@ const Dialogs = (props) => {
     let messages = props.state.messages.map(m => <Message text={m} />);
 
     let messageTextRef = React.createRef();
-    debugger;
 
     const sendMessage = () => {
         props.sendMessage();
