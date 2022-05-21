@@ -1,4 +1,5 @@
 import React from 'react';
+import { sendMessage, updateNewMessageText } from '../../redux/store';
 import DialogItem from './Dialog/DialogItem';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -10,13 +11,13 @@ const Dialogs = (props) => {
 
     let messageTextRef = React.createRef();
 
-    const sendMessage = () => {
-        props.dispatch({ type: 'SEND-MESSAGE' });
+    const sendMes = () => {
+        props.dispatch(sendMessage());
     }
 
     const updateTextArea = () => {
         let text = messageTextRef.current.value;
-        props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', text: text });
+        props.dispatch(updateNewMessageText(text));
     }
 
     return (
@@ -37,7 +38,7 @@ const Dialogs = (props) => {
                         />
                     </div>
                     <div>
-                        <button onClick={sendMessage}>Отправить</button>
+                        <button onClick={sendMes}>Отправить</button>
                     </div>
                 </div>
             </div>

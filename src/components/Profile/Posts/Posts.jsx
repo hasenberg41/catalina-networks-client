@@ -1,4 +1,5 @@
 import React from 'react';
+import { addNewPost, updateNewPostTextArea } from '../../../redux/store';
 import Post from './Post/Post';
 import classes from './Posts.module.css';
 
@@ -7,13 +8,13 @@ const Posts = (props) => {
 
     let textPostRef = React.createRef();
 
-    const addNewPost = () => {
-        props.dispatch({type: 'ADD-POST'})
+    const addPost = () => {
+        props.dispatch(addNewPost())
     }
 
     const updateTextArea = () => {
         let text = textPostRef.current.value;
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', text: text})
+        props.dispatch(updateNewPostTextArea(text))
     }
 
     return (
@@ -27,7 +28,7 @@ const Posts = (props) => {
                 </div>
 
                 <div>
-                    <button onClick={addNewPost}>Add</button>
+                    <button onClick={addPost}>Add</button>
                 </div>
             </div>
 
