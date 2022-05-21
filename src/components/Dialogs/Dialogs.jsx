@@ -11,12 +11,12 @@ const Dialogs = (props) => {
     let messageTextRef = React.createRef();
 
     const sendMessage = () => {
-        props.sendMessage();
+        props.dispatch({ type: 'SEND-MESSAGE' });
     }
 
     const updateTextArea = () => {
         let text = messageTextRef.current.value;
-        props.updateNewMessageTextArea(text);
+        props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', text: text });
     }
 
     return (
