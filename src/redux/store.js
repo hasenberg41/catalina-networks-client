@@ -21,7 +21,7 @@ let store = {
             newPostText: ''
         }
     },
-    
+
     getState() {
         return this._state;
     },
@@ -30,33 +30,31 @@ let store = {
         console.log('state was changed')
     },
 
-    addPost() {
-        let newPost = { likes: 13, text: this._state.profilePage.newPostText };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._rerenderTree(this._state);
-    },
-
-    updateNewPostTextArea(text) {
-        this._state.profilePage.newPostText = text;
-        this._rerenderTree(this._state);
-    },
-
-    sendMessage() {
-        let message = this._state.dialogsPage.newMessageText;
-        this._state.dialogsPage.messages.push(message);
-        this._state.dialogsPage.newMessageText = '';
-        this._rerenderTree(this._state);
-    },
-
     subscribe(observer) {
         this._rerenderTree = observer;
     },
 
-    updateNewMessageTextArea(text) {
-        this._state.dialogsPage.newMessageText = text;
-        this._rerenderTree(this._state);
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = { likes: 13, text: this._state.profilePage.newPostText };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._rerenderTree(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.text;
+            this._rerenderTree(this._state);
+        } else if (action.type === 'SEND-MESSAGE') {
+            let message = this._state.dialogsPage.newMessageText;
+            this._state.dialogsPage.messages.push(message);
+            this._state.dialogsPage.newMessageText = '';
+            this._rerenderTree(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.text;
+            this._rerenderTree(this._state);
+        }
     }
 }
+
+window.store = store;
 
 export default store;

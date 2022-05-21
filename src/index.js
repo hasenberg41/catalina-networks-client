@@ -9,10 +9,7 @@ export const rerenderTree = (state) => root.render(
   <React.StrictMode>
     <App 
       state={state} 
-      addPost={store.addPost.bind(store)} 
-      updateNewPostTextArea={store.updateNewPostTextArea.bind(store)}
-      sendMessage={store.sendMessage.bind(store)}
-      updateNewMessageTextArea={store.updateNewMessageTextArea.bind(store)}  
+      dispatch={store.dispatch.bind(store)}
     />
   </React.StrictMode>
 );
