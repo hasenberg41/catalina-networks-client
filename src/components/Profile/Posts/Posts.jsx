@@ -1,18 +1,17 @@
 import React from 'react';
-import { addNewPostCreator, updateNewPostTextAreaCreator } from '../../../redux/reducers/profile-reducer';
 import Post from './Post/Post';
 import classes from './Posts.module.css';
 
 const Posts = (props) => {
     let posts = props.posts.map(p => <Post text={p.text} likes={p.likes} />);
 
-    const addPost = () => {
-        props.dispatch(addNewPostCreator())
+    const onAddPost = () => {
+        props.addNewPost();
     }
 
-    const updateTextArea = (e) => {
+    const onUpdateTextArea = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewPostTextAreaCreator(text))
+        props.updateTextArea(text);
     }
 
     return (
@@ -23,14 +22,14 @@ const Posts = (props) => {
             <div>
                 <div>
                     <textarea
-                        onChange={updateTextArea}
+                        onChange={onUpdateTextArea}
                         placeholder='Введите текст'
                         value={props.newPostText}
                     />
                 </div>
 
                 <div>
-                    <button onClick={addPost}>Add</button>
+                    <button onClick={onAddPost}>Add</button>
                 </div>
             </div>
 

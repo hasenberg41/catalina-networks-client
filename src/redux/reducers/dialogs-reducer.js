@@ -1,3 +1,5 @@
+import initialState from "../initialState";
+
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
@@ -13,7 +15,7 @@ export const updateNewMessageTextCreator = (text) => {
     }
 }
 
-const dialogsReducer = (state, action) => {
+const dialogsReducer = (state = initialState.dialogsPage, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
             let message = state.newMessageText;

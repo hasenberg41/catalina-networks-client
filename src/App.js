@@ -1,5 +1,4 @@
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
@@ -7,6 +6,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Friends from './components/Friends/Friends';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => {
   return (
@@ -26,7 +26,7 @@ const App = (props) => {
               dispatch={props.dispatch} />}
             />
 
-            <Route path='/dialogs/*' element={<Dialogs
+            <Route path='/dialogs/*' element={<DialogsContainer
               state={props.state.dialogsPage}
               dispatch={props.dispatch} />}
             />

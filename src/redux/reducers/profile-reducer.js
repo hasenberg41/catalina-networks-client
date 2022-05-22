@@ -1,3 +1,5 @@
+import initialState from "../initialState";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -14,7 +16,7 @@ export const updateNewPostTextAreaCreator = (text) => {
     }
 }
 
-const profileReducer = (state, action) => {
+const profileReducer = (state = initialState.profilePage, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = { likes: 13, text: state.newPostText };

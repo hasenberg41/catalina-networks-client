@@ -16,7 +16,9 @@ export const rerenderTree = (state) => root.render(
 
 rerenderTree(store.getState())
 
-store.subscribe(rerenderTree);
+store.subscribe(() => {
+  rerenderTree(store.getState())
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
