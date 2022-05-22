@@ -1,20 +1,18 @@
 import React from 'react';
-import { addNewPost, updateNewPostTextArea } from '../../../redux/store';
+import { addNewPostCreator, updateNewPostTextAreaCreator } from '../../../redux/reducers/profile-reducer';
 import Post from './Post/Post';
 import classes from './Posts.module.css';
 
 const Posts = (props) => {
     let posts = props.posts.map(p => <Post text={p.text} likes={p.likes} />);
 
-    let textPostRef = React.createRef();
-
     const addPost = () => {
-        props.dispatch(addNewPost())
+        props.dispatch(addNewPostCreator())
     }
 
-    const updateTextArea = () => {
-        let text = textPostRef.current.value;
-        props.dispatch(updateNewPostTextArea(text))
+    const updateTextArea = (e) => {
+        let text = e.target.value;
+        props.dispatch(updateNewPostTextAreaCreator(text))
     }
 
     return (
@@ -24,7 +22,11 @@ const Posts = (props) => {
 
             <div>
                 <div>
-                    <textarea onChange={updateTextArea} ref={textPostRef} value={props.newPostText} />
+                    <textarea
+                        onChange={updateTextArea}
+                        placeholder='Введите текст'
+                        value={props.newPostText}
+                    />
                 </div>
 
                 <div>

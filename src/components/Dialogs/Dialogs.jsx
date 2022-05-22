@@ -1,39 +1,37 @@
 import React from 'react';
-import { sendMessage, updateNewMessageText } from '../../redux/store';
+import { sendMessageCreator, updateNewMessageTextCreator } from '../../redux/reducers/dialogs-reducer';
 import DialogItem from './Dialog/DialogItem';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-    let dialogs = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
 
-    let messages = props.state.messages.map(m => <Message text={m} />);
-
-    let messageTextRef = React.createRef();
+    let messageElements = props.state.messages.map(m => <Message text={m} />);
 
     const sendMes = () => {
-        props.dispatch(sendMessage());
+        props.dispatch(sendMessageCreator());
     }
 
-    const updateTextArea = () => {
-        let text = messageTextRef.current.value;
-        props.dispatch(updateNewMessageText(text));
+    const updateTextArea = (e) => {
+        let text = e.target.value;
+        props.dispatch(updateNewMessageTextCreator(text));
     }
 
     return (
         <div className={classes.dialogs}>
 
             <div className={classes.persones}>
-                {dialogs}
+                {dialogElements}
             </div>
 
             <div className={classes.messages}>
-                {messages}
+                {messageElements}
                 <div>
                     <div>
                         <textarea
                             onChange={updateTextArea}
-                            ref={messageTextRef}
+                            placeholder='Введите сообщение'
                             value={props.state.newMessageText}
                         />
                     </div>
