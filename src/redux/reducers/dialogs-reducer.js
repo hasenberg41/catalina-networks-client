@@ -22,7 +22,7 @@ const dialogsReducer = (state = initialState.dialogsPage, action) => {
             return {
                 ...state,
                 newMessageText: '',
-                messages: [...state.messages, { id: 6, text: newMessageBody}]
+                messages: [...state.messages, { id: state.messages.length + 1, text: newMessageBody}]
             }
         case UPDATE_NEW_MESSAGE_TEXT:
             return {

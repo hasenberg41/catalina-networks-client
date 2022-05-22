@@ -19,7 +19,7 @@ export const updateNewPostTextAreaCreator = (text) => {
 const profileReducer = (state = initialState.profilePage, action) => {
     switch (action.type) {
         case ADD_POST:
-            let newPost = { likes: 13, text: state.newPostText };
+            let newPost = { id: state.posts.length + 1, likes: 13, text: state.newPostText };
             return {
                 ...state,
                 posts: [...state.posts, newPost],

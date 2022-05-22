@@ -16,11 +16,30 @@ let initialState = {
     },
     profilePage: {
         posts: [
-            { likes: 0, text: "Buy beer" },
-            { likes: 15, text: "Drinked beer" },
-            { likes: 32, text: "oaoa" }
+            { id: 1, likes: 0, text: "Buy beer" },
+            { id: 2, likes: 15, text: "Drinked beer" },
+            { id: 3, likes: 32, text: "oaoa" }
         ],
         newPostText: ''
+    },
+    friendsPage: {
+        users: [
+            {
+                id: 1, followed: false, fullName: 'Жека',
+                status: 'Сижу и смотрю на небо',
+                location: { city: 'Симферополь', country: 'Россия' }
+            },
+            {
+                id: 2, followed: true, fullName: 'Егор',
+                status: 'я валера',
+                location: { city: 'Самара', country: 'Россия' }
+            },
+            {
+                id: 3, followed: false, fullName: 'Алексей',
+                status: 'Лежу и смотрю на люстру',
+                location: { city: 'Киев', country: 'Украина' }
+            }
+        ]
     }
 }
 

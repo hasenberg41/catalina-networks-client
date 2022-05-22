@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 import { addNewPostCreator, updateNewPostTextAreaCreator } from '../../../redux/reducers/profile-reducer';
 import Posts from './Posts';
 
-let stateToProps = (state) => {
+let mapStateToProps = (state) => {
     return {
         profilePage: state.profilePage
     }
 }
 
-let dispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch) => {
     return {
         addNewPost: () => {
             dispatch(addNewPostCreator())
@@ -19,6 +19,6 @@ let dispatchToProps = (dispatch) => {
     }
 }
 
-let PostsContainer = connect(stateToProps, dispatchToProps)(Posts);
+let PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
 
 export default PostsContainer;
