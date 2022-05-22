@@ -3,7 +3,7 @@ import Post from './Post/Post';
 import classes from './Posts.module.css';
 
 const Posts = (props) => {
-    let posts = props.posts.map(p => <Post text={p.text} likes={p.likes} />);
+    let posts = props.profilePage.posts.map(p => <Post text={p.text} likes={p.likes} />);
 
     const onAddPost = () => {
         props.addNewPost();
@@ -24,7 +24,7 @@ const Posts = (props) => {
                     <textarea
                         onChange={onUpdateTextArea}
                         placeholder='Введите текст'
-                        value={props.newPostText}
+                        value={props.profilePage.newPostText}
                     />
                 </div>
 

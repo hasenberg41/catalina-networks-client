@@ -8,7 +8,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
 
@@ -21,15 +21,8 @@ const App = (props) => {
         <div className='App-content'>
           <Routes>
 
-            <Route path='/profile' element={<Profile
-              state={props.state.profilePage}
-              dispatch={props.dispatch} />}
-            />
-
-            <Route path='/dialogs/*' element={<DialogsContainer
-              state={props.state.dialogsPage}
-              dispatch={props.dispatch} />}
-            />
+            <Route path='/profile' element={<Profile />}/>
+            <Route path='/dialogs/*' element={<DialogsContainer />}/>
             <Route path='/friends/*' element={<Friends />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />

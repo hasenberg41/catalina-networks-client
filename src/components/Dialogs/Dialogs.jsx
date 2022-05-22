@@ -4,9 +4,9 @@ import classes from './Dialogs.module.css';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-    let dialogElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+    let dialogElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
 
-    let messageElements = props.state.messages.map(m => <Message text={m} />);
+    let messageElements = props.dialogsPage.messages.map(m => <Message text={m.text} id={m.id} />);
 
     const onSendMessage = () => {
         props.sendMessage();
@@ -25,13 +25,15 @@ const Dialogs = (props) => {
             </div>
 
             <div className={classes.messages}>
-                {messageElements}
+                <div>
+                    {messageElements}
+                </div>
                 <div>
                     <div>
                         <textarea
                             onChange={onUpdateTextArea}
                             placeholder='Введите сообщение'
-                            value={props.state.newMessageText}
+                            value={props.dialogsPage.newMessageText}
                         />
                     </div>
                     <div>

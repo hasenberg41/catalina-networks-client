@@ -7,7 +7,10 @@ let initialState = {
             { id: 4, name: 'Serega' }
         ],
         messages: [
-            "Где деньги?", "Buy beer", "Lets go", "Sheet"
+            { id: 1, text: "Где деньги?" },
+            { id: 2, text: "Buy beer" },
+            { id: 3, text: "Lets go" },
+            { id: 4, text: "Sheet" }
         ],
         newMessageText: ''
     },
