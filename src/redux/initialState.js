@@ -24,21 +24,21 @@ let initialState = {
     },
     friendsPage: {
         users: [
-            {
-                id: 1, followed: false, fullName: 'Жека',
-                status: 'Сижу и смотрю на небо', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
-                location: { city: 'Симферополь', country: 'Россия' }
-            },
-            {
-                id: 2, followed: true, fullName: 'Егор',
-                status: 'я валера', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
-                location: { city: 'Самара', country: 'Россия' }
-            },
-            {
-                id: 3, followed: false, fullName: 'Алексей',
-                status: 'Лежу и смотрю на люстру', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
-                location: { city: 'Киев', country: 'Украина' }
-            }
+            // {
+            //     id: 1, followed: false, fullName: 'Жека',
+            //     status: 'Сижу и смотрю на небо', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
+            //     location: { city: 'Симферополь', country: 'Россия' }
+            // },
+            // {
+            //     id: 2, followed: true, fullName: 'Егор',
+            //     status: 'я валера', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
+            //     location: { city: 'Самара', country: 'Россия' }
+            // },
+            // {
+            //     id: 3, followed: false, fullName: 'Алексей',
+            //     status: 'Лежу и смотрю на люстру', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/BarackObamaportrait.jpg/640px-BarackObamaportrait.jpg',
+            //     location: { city: 'Киев', country: 'Украина' }
+            // }
         ]
     }
 }
