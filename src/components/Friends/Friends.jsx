@@ -4,15 +4,11 @@ import API from '../../api';
 import userAvatar from '../../assets/images/user-avatar.png';
 
 class Friends extends React.Component {
-    constructor(props) {
-        super(props);
-
-        if (this.props.users.length === 0) {
-            API.get('Users').then(response => {
-                debugger;
+    componentDidMount() {
+        API.get('Users').then(response => {
+            if (this.props.users.length === 0)
                 this.props.setUsers(response.data)
-            })
-        }
+        })
     }
 
     render() {
