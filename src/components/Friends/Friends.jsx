@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import classes from './Friends.module.css';
+import API from '../../api';
 import userAvatar from '../../assets/images/user-avatar.png';
 
 class Friends extends React.Component {
@@ -8,7 +8,7 @@ class Friends extends React.Component {
         super(props);
 
         if (this.props.users.length === 0) {
-            axios.get('https://localhost:7047/api/Users').then(response => {
+            API.get('Users').then(response => {
                 debugger;
                 this.props.setUsers(response.data)
             })
