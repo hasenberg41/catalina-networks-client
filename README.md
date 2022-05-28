@@ -1,6 +1,7 @@
 # Catalina Networks
 
 ### Начинаем реактить с социальной сети.
+## Это SPA-приложение, frontend часть
 
 # Getting Started with Create React App
 
