@@ -4,7 +4,10 @@ import Friends from './Friends';
 
 const mapStateToProps = (state) => {
     return {
-        users: state.friendsPage.users
+        users: state.friendsPage.users,
+        pageSize: state.friendsPage.pageSize,
+        totalCount: state.friendsPage.totalCount,
+        currentPage: state.friendsPage.currentPage
     }
 }
 

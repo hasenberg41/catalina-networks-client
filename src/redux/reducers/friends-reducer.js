@@ -3,6 +3,7 @@ import initialState from "../initialState";
 const FOLLOW = 'FOLLOWED';
 const UNFOLLOW = 'UNFOLLOWED';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 
 export const followAC = (userId) => {
     return { type: FOLLOW, userId }
@@ -14,6 +15,10 @@ export const unfollowAC = (userId) => {
 
 export const setUsersAC = (users) => {
     return { type: SET_USERS, users }
+}
+
+export const setCurrentPage = (currentPage) => {
+    return { type: SET_CURRENT_PAGE, currentPage }
 }
 
 const friendsReducer = (state = initialState.friendsPage, action) => {
@@ -43,6 +48,11 @@ const friendsReducer = (state = initialState.friendsPage, action) => {
                 ...state,
                 users: [...state.users, ...action.users]
             };
+        case SET_CURRENT_PAGE:
+            return {
+                ...state,
+                currentPage: action.currentPage
+            }
         default:
             return state;
     }
