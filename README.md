@@ -3,6 +3,9 @@
 ### Начинаем реактить с социальной сети.
 ## Это SPA-приложение, frontend часть
 
+#### Backend часть проекта:
+https://github.com/hasenberg41/catalina-networks-server.git
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
