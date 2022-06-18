@@ -25,7 +25,7 @@ let initialState = {
     friendsPage: {
         users: [],
         pageSize: 10,
-        totalCount: 26,
+        totalCount: 0,
         currentPage: 1
     }
 }

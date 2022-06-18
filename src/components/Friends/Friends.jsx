@@ -7,8 +7,17 @@ class Friends extends React.Component {
     componentDidMount() {
         API.get(`Users?PageNumber=${this.props.currentPage}&PageSize=${this.props.pageSize}`)
             .then(response => {
-                if (this.props.users.length === 0)
-                    this.props.setUsers(response.data.users)
+                this.props.setUsers(response.data.users)
+                this.props.setUsersTotalCount(response.data.totalCount);
+                
+            })
+    }
+
+    setUsersPage = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        API.get(`Users?PageNumber=${pageNumber}&PageSize=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.users)
             })
     }
 
@@ -18,12 +27,13 @@ class Friends extends React.Component {
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         }
-        debugger
+        
         return (
             <div>
                 <div>
                     {pages.map(p => {
-                        return <span className={this.props.currentPage === p && classes.selectedPage}>{p}</span>
+                        return <span className={this.props.currentPage === p && classes.selectedPage}
+                            onClick={() => { this.setUsersPage(p) }}>{p}</span>
                     })}
                 </div>
                 <div>

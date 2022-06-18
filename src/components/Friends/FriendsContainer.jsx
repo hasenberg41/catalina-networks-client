@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { followAC, setUsersAC, unfollowAC } from '../../redux/reducers/friends-reducer';
+import { followAC, setUsersAC, unfollowAC, setCurrentPageAC, setUsersTotalCountAC } from '../../redux/reducers/friends-reducer';
 import Friends from './Friends';
 
 const mapStateToProps = (state) => {
@@ -21,6 +21,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (page) => {
+            dispatch(setCurrentPageAC(page))
+        },
+        setUsersTotalCount: (count) => {
+            dispatch(setUsersTotalCountAC(count))
         }
     }
 }
